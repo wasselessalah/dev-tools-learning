@@ -1956,6 +1956,38 @@ git push
 - GitHub Docs: https://docs.github.com/
 - GitHub Skills: https://skills.github.com/
 
+
+---
+
+# 64. Recommended VS Code Extensions for Git & GitHub
+
+VS Code already includes built-in Git support, but some extensions can make Git and GitHub easier to use.
+
+## 1. GitLens — Git supercharged
+
+**Extension:** `eamodio.gitlens`
+
+GitLens adds powerful Git features directly to VS Code.
+
+Useful features:
+
+- Git blame
+- File history
+- Line history
+- Commit history
+- Branch comparison
+- Repository history
+- Author information
+- Visual Git information
+
+Install from the terminal:
+
+```bash
+code --install-extension eamodio.gitlens
+
+```
+
+
 ---
 
 ## Next Step
@@ -1987,3 +2019,5 @@ GitHub Actions
 The goal is not to memorize Git commands.
 
 The goal is to understand the workflow and use Git naturally while developing.
+
+
