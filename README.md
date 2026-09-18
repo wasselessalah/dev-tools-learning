@@ -47,7 +47,51 @@ Learn version control and collaborative development with Git and GitHub.
 - [GitHub CLI](https://cli.github.com/)
 - [GitHub Desktop](https://desktop.github.com/)
 
-Git is the version-control system used locally, while GitHub provides a platform for hosting repositories and collaborating around Git projects. :contentReference[oaicite:1]{index=1}
+---
+
+### 🟢 Node.js
+
+Learn Node.js for backend development, APIs, asynchronous programming, npm, authentication, databases, testing, Docker, and production applications.
+
+#### 📖 Documentation
+
+- [Node.js Learning Guide](./node_js/NODEJS_LEARNING.md)
+
+#### 🌐 Official Resources
+
+- [Node.js Official Website](https://nodejs.org/)
+- [Node.js Documentation](https://nodejs.org/docs/latest/api/)
+- [Node.js Learn](https://nodejs.org/en/learn)
+- [Node.js Downloads](https://nodejs.org/en/download)
+- [Node.js GitHub](https://github.com/nodejs/node)
+- [npm](https://www.npmjs.com/)
+- [npm Documentation](https://docs.npmjs.com/)
+
+#### 📦 Important Node.js Topics
+
+- Node.js Runtime
+- npm
+- `package.json`
+- Modules
+- CommonJS
+- ES Modules
+- `fs`
+- `path`
+- `http`
+- `process`
+- Async/Await
+- Promises
+- Event Loop
+- REST APIs
+- Express.js
+- Middleware
+- Authentication
+- PostgreSQL
+- Prisma
+- Redis
+- Testing
+- TypeScript
+- Docker
 
 ---
 
@@ -57,19 +101,19 @@ This repository will progressively cover tools commonly used in software develop
 
 | Category | Tools |
 |---|---|
-| Version Control | Git |
-| Code Hosting | GitHub |
-| Containers | Docker |
-| Container Orchestration | Docker Compose |
-| Code Editor | VS Code |
-| Package Management | npm |
-| Backend Runtime | Node.js |
-| API Testing | Postman |
-| Cloud | AWS |
-| Infrastructure | Terraform |
-| CI/CD | GitHub Actions |
-| Linux | Ubuntu / Linux |
-| Containers Orchestration | Kubernetes |
+| Version Control | [Git](https://git-scm.com/) |
+| Code Hosting | [GitHub](https://github.com/) |
+| Containers | [Docker](https://www.docker.com/) |
+| Container Orchestration | [Docker Compose](https://docs.docker.com/compose/) |
+| Code Editor | [VS Code](https://code.visualstudio.com/) |
+| Package Management | [npm](https://www.npmjs.com/) |
+| Backend Runtime | [Node.js](https://nodejs.org/) |
+| API Testing | [Postman](https://www.postman.com/) |
+| Cloud | [AWS](https://aws.amazon.com/) |
+| Infrastructure | [Terraform](https://developer.hashicorp.com/terraform) |
+| CI/CD | [GitHub Actions](https://github.com/features/actions) |
+| Linux | [Ubuntu](https://ubuntu.com/) / Linux |
+| Container Orchestration | [Kubernetes](https://kubernetes.io/) |
 
 ---
 
@@ -119,11 +163,54 @@ Learn:
 - SSH authentication
 - Repository security
 
-GitHub's official documentation provides guides for repositories, GitHub Flow, pull requests, authentication, Actions, and other collaboration features. :contentReference[oaicite:2]{index=2}
+---
+
+### 3. Node.js
+
+Learn:
+
+- What is Node.js?
+- Installing Node.js
+- Node.js versions
+- npm
+- `package.json`
+- Dependencies
+- Modules
+- CommonJS
+- ES Modules
+- Built-in modules
+- `fs`
+- `path`
+- `http`
+- `process`
+- Environment variables
+- Async/Await
+- Promises
+- Event Loop
+- HTTP servers
+- REST APIs
+- Express.js
+- Middleware
+- Error handling
+- Authentication
+- Validation
+- PostgreSQL
+- Prisma
+- Redis
+- Testing
+- TypeScript
+- Docker
+- Production deployment
+
+Documentation:
+
+- [Node.js Learning Guide](./node_js/NODEJS_LEARNING.md)
+- [Node.js Documentation](https://nodejs.org/docs/latest/api/)
+- [Node.js Learn](https://nodejs.org/en/learn)
 
 ---
 
-### 3. Docker
+### 4. Docker
 
 Learn:
 
@@ -142,11 +229,9 @@ Learn:
 - Multi-stage builds
 - Docker best practices
 
-Official Docker documentation provides beginner tutorials, installation information, containerization guides, and CLI references. :contentReference[oaicite:3]{index=3}
-
 ---
 
-### 4. Docker Compose
+### 5. Docker Compose
 
 Learn:
 
@@ -167,24 +252,55 @@ Learn:
 
 ## 🧑‍💻 VS Code
 
-VS Code can be used directly with Git repositories and provides a Source Control interface for common Git operations. :contentReference[oaicite:4]{index=4}
+[VS Code](https://code.visualstudio.com/) can be used directly with Git repositories and provides a Source Control interface for common Git operations.
 
 ### Recommended Extensions
 
-- GitLens
-- Git Graph
-- Docker
-- YAML
-- Markdown All in One
-- Markdown Preview Enhanced
-- Error Lens
-- Prettier
-- ESLint
-- Path Intellisense
+#### 🔀 Git & GitHub
 
-Official VS Code Git documentation:
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+- [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
+#### 🟢 Node.js / JavaScript / TypeScript
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+- [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
+- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+
+#### 🐳 Docker
+
+- [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+
+#### 🌐 API Development
+
+- [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+- [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
+
+#### 🗄️ Database
+
+- [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
+- [PostgreSQL](https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres)
+
+#### 📝 Markdown
+
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+- [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+
+#### 🛠️ Other Useful Extensions
+
+- [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
+- [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
+
+### Official VS Code Resources
+
+- [VS Code Official Website](https://code.visualstudio.com/)
+- [VS Code Documentation](https://code.visualstudio.com/docs)
 - [VS Code Source Control](https://code.visualstudio.com/docs/sourcecontrol/quickstart)
+- [VS Code Extensions Marketplace](https://marketplace.visualstudio.com/)
 
 ---
 
@@ -200,5 +316,8 @@ tools-learning/
 │   ├── DOCKER_Topics_Tools.md
 │   └── DOCKER_COMPOSE.md
 │
-└── git_gitHub/
-    └── Git_GitHub_Beginner_Guide.md
+├── git_gitHub/
+│   └── Git_GitHub_Beginner_Guide.md
+│
+└── node_js/
+    └── NODEJS_LEARNING.md
