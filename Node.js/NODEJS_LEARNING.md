@@ -1700,3 +1700,206 @@ Cloud
 
 That architecture gives you a strong foundation for modern full-stack,
 backend, Cloud, and DevOps projects.
+
+# Recommended VS Code Extensions for Node.js
+
+## Essential
+
+### ESLint
+https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+- JavaScript/TypeScript linting
+- Finds code problems
+- Auto-fixes many issues
+
+### Prettier - Code formatter
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+- Automatic formatting
+- Consistent code style
+- Supports JS, TS, JSON, Markdown, etc.
+
+Recommended `settings.json`:
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+```
+
+### Error Lens
+https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
+
+- Shows errors and warnings directly in the editor
+- Makes debugging faster
+
+### npm Intellisense
+https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense
+
+- Autocomplete npm package names in imports
+
+### Path Intellisense
+https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense
+
+- Autocomplete file and folder paths
+
+---
+
+## API / Backend
+
+### REST Client
+https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+Test APIs directly inside VS Code.
+
+Example:
+
+```http
+GET http://localhost:4000/api/users
+
+###
+
+POST http://localhost:4000/api/users
+Content-Type: application/json
+
+{
+  "name": "Wassel",
+  "email": "wassel@example.com"
+}
+```
+
+### Thunder Client
+https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client
+
+Useful for REST API testing, authentication, collections, and environments.
+
+**Use REST Client or Thunder Client; you do not need both.**
+
+---
+
+## Database
+
+### Prisma
+https://marketplace.visualstudio.com/items?itemName=Prisma.prisma
+
+Recommended when using Prisma for:
+
+- Schema syntax highlighting
+- Formatting
+- Better Prisma schema editing
+
+### PostgreSQL
+https://marketplace.visualstudio.com/items?itemName=ckolkman.vscode-postgres
+
+Useful for connecting to PostgreSQL and running SQL queries from VS Code.
+
+---
+
+## Docker
+
+### Docker
+https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
+
+Useful for:
+
+- Dockerfiles
+- Containers
+- Images
+- Docker Compose
+- Container logs
+
+---
+
+## Git / GitHub
+
+### GitLens
+https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
+
+Useful for:
+
+- Git history
+- Blame information
+- Branches
+- Commit history
+- Comparing changes
+
+### GitHub Pull Requests and Issues
+https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
+
+Useful for:
+
+- Pull Requests
+- Issues
+- Code reviews
+- GitHub workflow inside VS Code
+
+---
+
+## Productivity
+
+### TODO Highlight
+https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
+
+Highlights:
+
+```text
+TODO
+FIXME
+BUG
+NOTE
+```
+
+Example:
+
+```ts
+// TODO: Add pagination
+```
+
+### Auto Rename Tag
+https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
+
+Useful when working with HTML, JSX, and TSX.
+
+---
+
+# Recommended Node.js VS Code Setup
+
+For a Node.js + TypeScript + Docker learning path, start with:
+
+```text
+✓ ESLint
+✓ Prettier
+✓ Error Lens
+✓ npm Intellisense
+✓ Path Intellisense
+✓ REST Client
+✓ Prisma        (if using Prisma)
+✓ Docker
+✓ GitLens
+✓ GitHub Pull Requests and Issues
+```
+
+Optional:
+
+```text
+○ Thunder Client
+○ PostgreSQL
+○ TODO Highlight
+○ Auto Rename Tag
+```
+
+### Minimal Setup
+
+If you want VS Code to stay lightweight:
+
+```text
+ESLint
+Prettier
+Error Lens
+GitLens
+Docker
+REST Client
+```
+
+Avoid installing multiple extensions that provide the same functionality.
