@@ -899,6 +899,1180 @@ journalctl -f
 journalctl -u service
 ```
 
+
+---
+
+# 34. Linux Filesystem in More Detail
+
+Linux has a single filesystem tree that starts at `/`.
+
+### `/`
+
+The root of the entire filesystem.
+
+```bash
+cd /
+ls
+```
+
+### `/home`
+
+Contains normal users' home directories.
+
+```text
+/home/wassel
+/home/user
+```
+
+### `/root`
+
+Home directory of the root user.
+
+### `/etc`
+
+System and application configuration.
+
+Examples:
+
+```text
+/etc/ssh/
+/etc/nginx/
+/etc/systemd/
+/etc/hosts
+```
+
+### `/var`
+
+Frequently changing data.
+
+Important examples:
+
+```text
+/var/log/
+/var/lib/
+/var/cache/
+```
+
+### `/tmp`
+
+Temporary files.
+
+### `/usr`
+
+Programs, libraries, documentation, and other user-space files.
+
+### `/opt`
+
+Optional third-party software.
+
+---
+
+# 35. Absolute vs Relative Paths
+
+An **absolute path** starts from `/`.
+
+```bash
+/home/wassel/projects/app
+```
+
+A **relative path** starts from the current directory.
+
+```bash
+projects/app
+```
+
+Check the current directory:
+
+```bash
+pwd
+```
+
+Go to an absolute path:
+
+```bash
+cd /home/wassel/projects
+```
+
+Go up one directory:
+
+```bash
+cd ..
+```
+
+Go to the current user's home:
+
+```bash
+cd ~
+```
+
+---
+
+# 36. Hidden Files
+
+Linux files beginning with `.` are hidden.
+
+Show them:
+
+```bash
+ls -la
+```
+
+Common examples:
+
+```text
+~/.ssh/
+~/.config/
+~/.bashrc
+~/.zshrc
+.git/
+.env
+```
+
+Do not delete hidden files unless you understand their purpose.
+
+---
+
+# 37. File Types
+
+Check the type of a file:
+
+```bash
+file app.js
+```
+
+Common types:
+
+```text
+regular file
+directory
+symbolic link
+executable
+device
+```
+
+List symbolic links:
+
+```bash
+ls -l
+```
+
+---
+
+# 38. Symbolic Links
+
+Create a symbolic link:
+
+```bash
+ln -s /path/to/original shortcut
+```
+
+Example:
+
+```bash
+ln -s ~/projects/my-api ~/my-api
+```
+
+Remove the link:
+
+```bash
+rm ~/my-api
+```
+
+Removing a symbolic link does not remove the original directory.
+
+---
+
+# 39. Hard Links
+
+Linux also supports hard links:
+
+```bash
+ln file.txt backup.txt
+```
+
+Hard links have different behavior from symbolic links and are generally less common in everyday development.
+
+For development workflows, understand symbolic links first.
+
+---
+
+# 40. File Ownership
+
+Check ownership:
+
+```bash
+ls -l
+```
+
+Example:
+
+```text
+-rw-r--r-- 1 wassel wassel 1200 app.js
+```
+
+Change owner:
+
+```bash
+sudo chown wassel:wassel app.js
+```
+
+Change recursively:
+
+```bash
+sudo chown -R wassel:wassel project/
+```
+
+Be careful with recursive ownership changes.
+
+---
+
+# 41. chmod in Detail
+
+Permissions are represented for:
+
+```text
+user
+group
+others
+```
+
+Example:
+
+```text
+-rwxr-xr--
+```
+
+Means:
+
+```text
+user   → rwx
+group  → r-x
+others → r--
+```
+
+Numeric permissions:
+
+```text
+r = 4
+w = 2
+x = 1
+```
+
+Examples:
+
+```bash
+chmod 755 script.sh
+chmod 644 config.json
+chmod 600 ~/.ssh/id_ed25519
+```
+
+A private SSH key should normally have restrictive permissions.
+
+---
+
+# 42. umask
+
+`umask` controls default permissions for newly created files and directories.
+
+Check:
+
+```bash
+umask
+```
+
+Example:
+
+```bash
+umask 022
+```
+
+This affects the default permissions assigned when new files are created.
+
+---
+
+# 43. Process Information
+
+Every running process has a PID.
+
+Find a process:
+
+```bash
+pgrep node
+```
+
+Detailed information:
+
+```bash
+ps -p PID -f
+```
+
+Find processes listening on a port:
+
+```bash
+sudo lsof -i :4000
+```
+
+Stop a process:
+
+```bash
+kill PID
+```
+
+Force stop:
+
+```bash
+kill -9 PID
+```
+
+---
+
+# 44. Signals
+
+Common Linux signals:
+
+```text
+SIGTERM → ask a process to terminate
+SIGKILL → force termination
+SIGINT  → interrupt, commonly Ctrl+C
+SIGHUP  → hangup/reload depending on application
+```
+
+For example:
+
+```bash
+kill -TERM PID
+```
+
+Prefer graceful termination before `SIGKILL`.
+
+---
+
+# 45. Background Jobs
+
+Run a command in the background:
+
+```bash
+npm run dev &
+```
+
+List jobs:
+
+```bash
+jobs
+```
+
+Bring a job to the foreground:
+
+```bash
+fg
+```
+
+Suspend a foreground process:
+
+```text
+Ctrl + Z
+```
+
+Continue it in the background:
+
+```bash
+bg
+```
+
+---
+
+# 46. `nohup`
+
+Run a command that should continue after the terminal closes:
+
+```bash
+nohup node server.js > app.log 2>&1 &
+```
+
+For production services, prefer systemd, Docker, or another proper process-management approach.
+
+---
+
+# 47. CPU and Memory Monitoring
+
+Use:
+
+```bash
+top
+```
+
+Or:
+
+```bash
+htop
+```
+
+Memory:
+
+```bash
+free -h
+```
+
+CPU information:
+
+```bash
+lscpu
+```
+
+Load average:
+
+```bash
+uptime
+```
+
+---
+
+# 48. Disk Monitoring
+
+Filesystem usage:
+
+```bash
+df -h
+```
+
+Directory usage:
+
+```bash
+du -sh project/
+```
+
+Top-level directory sizes:
+
+```bash
+du -h --max-depth=1 | sort -h
+```
+
+Find large files:
+
+```bash
+find . -type f -size +100M
+```
+
+---
+
+# 49. Inodes
+
+Linux filesystems also have inode limits.
+
+Check inode usage:
+
+```bash
+df -i
+```
+
+A filesystem can have free disk space but still run out of inodes if it contains a huge number of small files.
+
+This can happen with:
+
+```text
+node_modules
+cache directories
+temporary files
+logs
+```
+
+---
+
+# 50. Environment Configuration
+
+A common development pattern is:
+
+```text
+.env
+.env.example
+```
+
+Example `.env.example`:
+
+```env
+PORT=4000
+DATABASE_URL=
+JWT_SECRET=
+```
+
+`.env.example` can be committed.
+
+Actual secrets should normally not be committed:
+
+```gitignore
+.env
+.env.local
+.env.production
+```
+
+---
+
+# 51. Shell Configuration
+
+Bash configuration:
+
+```text
+~/.bashrc
+```
+
+Zsh configuration:
+
+```text
+~/.zshrc
+```
+
+After changing configuration:
+
+```bash
+source ~/.bashrc
+```
+
+Or:
+
+```bash
+source ~/.zshrc
+```
+
+Example alias:
+
+```bash
+alias ll="ls -lah"
+```
+
+---
+
+# 52. Useful Command-Line Shortcuts
+
+```text
+Ctrl + C  → stop/interrupt
+Ctrl + Z  → suspend
+Ctrl + D  → exit/end input
+Ctrl + L  → clear terminal
+Ctrl + A  → beginning of line
+Ctrl + E  → end of line
+Ctrl + R  → search command history
+```
+
+History:
+
+```bash
+history
+```
+
+Search previous commands:
+
+```text
+Ctrl + R
+```
+
+---
+
+# 53. `man` and Help
+
+Read the manual:
+
+```bash
+man ls
+```
+
+Search for help:
+
+```bash
+ls --help
+```
+
+Examples:
+
+```bash
+man chmod
+man ssh
+man systemctl
+man grep
+```
+
+Exit `man`:
+
+```text
+q
+```
+
+---
+
+# 54. Package Installation Safety
+
+Before installing a package:
+
+```bash
+apt search package-name
+apt show package-name
+```
+
+Understand what the package does.
+
+Avoid copying commands from unknown websites that execute scripts with:
+
+```bash
+curl ... | bash
+```
+
+unless you have inspected and trust the source.
+
+---
+
+# 55. Networking Concepts
+
+Important concepts:
+
+```text
+IP address
+MAC address
+Port
+TCP
+UDP
+DNS
+HTTP
+HTTPS
+SSH
+Routing
+Firewall
+```
+
+Example:
+
+```text
+Browser
+   ↓
+DNS
+   ↓
+IP address
+   ↓
+TCP connection
+   ↓
+Port 443
+   ↓
+HTTPS server
+```
+
+---
+
+# 56. DNS
+
+DNS converts domain names into IP addresses.
+
+Example:
+
+```bash
+nslookup google.com
+```
+
+Or:
+
+```bash
+dig google.com
+```
+
+Install `dig` if necessary:
+
+```bash
+sudo apt install dnsutils
+```
+
+---
+
+# 57. Localhost
+
+`localhost` normally refers to the local machine.
+
+Common address:
+
+```text
+127.0.0.1
+```
+
+IPv6:
+
+```text
+::1
+```
+
+Example:
+
+```bash
+curl http://localhost:4000
+```
+
+---
+
+# 58. Ports
+
+A port identifies a network service.
+
+Common development ports:
+
+```text
+22   → SSH
+80   → HTTP
+443  → HTTPS
+3000 → Next.js / frontend
+4000 → Node.js API
+5000 → development API
+5432 → PostgreSQL
+6379 → Redis
+```
+
+Check:
+
+```bash
+ss -tulpn
+```
+
+---
+
+# 59. HTTP Status Codes
+
+Important API status codes:
+
+```text
+200 → OK
+201 → Created
+204 → No Content
+301 → Permanent redirect
+302 → Temporary redirect
+400 → Bad Request
+401 → Unauthorized
+403 → Forbidden
+404 → Not Found
+409 → Conflict
+422 → Validation error
+429 → Too Many Requests
+500 → Internal Server Error
+502 → Bad Gateway
+503 → Service Unavailable
+```
+
+---
+
+# 60. Logs: What to Look For
+
+When debugging a server, look for:
+
+```text
+ERROR
+WARN
+connection refused
+permission denied
+address already in use
+out of memory
+timeout
+authentication failed
+database connection failed
+```
+
+Useful commands:
+
+```bash
+tail -f app.log
+journalctl -f
+grep "ERROR" app.log
+```
+
+---
+
+# 61. Port Already in Use
+
+If Node.js says a port is already in use:
+
+```text
+EADDRINUSE
+```
+
+Find the process:
+
+```bash
+sudo lsof -i :4000
+```
+
+Then stop it:
+
+```bash
+kill PID
+```
+
+Or use another port:
+
+```bash
+PORT=4001 npm run dev
+```
+
+---
+
+# 62. Permission Denied
+
+If you see:
+
+```text
+Permission denied
+```
+
+Check:
+
+```bash
+ls -l file
+```
+
+Check ownership:
+
+```bash
+ls -ln file
+```
+
+Check directory permissions:
+
+```bash
+ls -ld directory
+```
+
+Do not immediately solve every permission problem with:
+
+```bash
+sudo chmod 777
+```
+
+Understand the actual ownership and permission issue first.
+
+---
+
+# 63. Disk Full
+
+If an application stops writing files:
+
+```bash
+df -h
+```
+
+Check large directories:
+
+```bash
+sudo du -xh /var | sort -h | tail
+```
+
+Check logs:
+
+```bash
+journalctl --disk-usage
+```
+
+Clean package cache when appropriate:
+
+```bash
+sudo apt clean
+```
+
+---
+
+# 64. Memory Problems
+
+Check:
+
+```bash
+free -h
+```
+
+Then:
+
+```bash
+top
+```
+
+Look for applications consuming excessive memory.
+
+For Node.js, monitor:
+
+```text
+RSS
+heap usage
+process count
+container memory
+```
+
+---
+
+# 65. Linux + PostgreSQL
+
+A common development stack is:
+
+```text
+Linux
+ ↓
+Node.js
+ ↓
+PostgreSQL
+```
+
+PostgreSQL commonly listens on:
+
+```text
+5432
+```
+
+Check:
+
+```bash
+ss -tulpn | grep 5432
+```
+
+Useful PostgreSQL commands are documented separately in the PostgreSQL learning guide.
+
+---
+
+# 66. Linux + Redis
+
+Redis commonly uses:
+
+```text
+6379
+```
+
+Check:
+
+```bash
+ss -tulpn | grep 6379
+```
+
+Typical uses:
+
+```text
+Caching
+Sessions
+Rate limiting
+Queues
+Pub/Sub
+```
+
+---
+
+# 67. Linux + Nginx
+
+Nginx is commonly used as:
+
+```text
+Reverse Proxy
+Web Server
+TLS termination
+Load balancer
+```
+
+Typical architecture:
+
+```text
+Internet
+   ↓
+Nginx :443
+   ↓
+Node.js :4000
+   ↓
+PostgreSQL :5432
+```
+
+Official documentation:
+
+https://nginx.org/en/docs/
+
+---
+
+# 68. Linux + Docker Architecture
+
+A modern application might look like:
+
+```text
+Linux Server
+│
+├── Nginx
+│
+├── Node.js API container
+│
+├── PostgreSQL container
+│
+└── Redis container
+```
+
+Docker Compose can manage these services together.
+
+---
+
+# 69. Linux Server Deployment Checklist
+
+Before deploying:
+
+```text
+[ ] Update the server
+[ ] Create a non-root user
+[ ] Configure SSH keys
+[ ] Configure firewall
+[ ] Install Git
+[ ] Install Docker
+[ ] Configure environment variables
+[ ] Deploy application
+[ ] Configure logs
+[ ] Configure HTTPS
+[ ] Configure backups
+[ ] Add monitoring
+[ ] Test restart/recovery
+```
+
+---
+
+# 70. Production vs Development
+
+Development:
+
+```text
+localhost
+debug logs
+hot reload
+development database
+local environment variables
+```
+
+Production:
+
+```text
+HTTPS
+restricted firewall
+secure secrets
+logging
+monitoring
+backups
+resource limits
+automatic restart
+database protection
+```
+
+Never assume a development configuration is safe for production.
+
+---
+
+# 71. Recommended Learning Exercises
+
+### Exercise 1
+
+Create:
+
+```text
+~/projects/linux-practice/
+├── notes/
+├── scripts/
+└── logs/
+```
+
+### Exercise 2
+
+Create a Bash script that:
+
+```text
+1. Prints the current directory
+2. Prints the current user
+3. Prints the date
+4. Prints memory usage
+5. Prints disk usage
+```
+
+### Exercise 3
+
+Start a Node.js server on port `4000`.
+
+Find it using:
+
+```bash
+ss -tulpn | grep 4000
+```
+
+### Exercise 4
+
+Use `curl` to call the API.
+
+### Exercise 5
+
+Run the API inside Docker.
+
+### Exercise 6
+
+Connect to a remote Linux server using SSH.
+
+### Exercise 7
+
+Configure Nginx as a reverse proxy.
+
+---
+
+# 72. Linux Learning Progress Checklist
+
+## Fundamentals
+
+```text
+[ ] Terminal
+[ ] Files
+[ ] Directories
+[ ] Paths
+[ ] Hidden files
+[ ] Permissions
+[ ] Ownership
+[ ] Users
+[ ] sudo
+```
+
+## System
+
+```text
+[ ] Processes
+[ ] Signals
+[ ] Services
+[ ] systemd
+[ ] Logs
+[ ] CPU
+[ ] Memory
+[ ] Disk
+[ ] Inodes
+```
+
+## Networking
+
+```text
+[ ] IP addresses
+[ ] Ports
+[ ] TCP
+[ ] DNS
+[ ] HTTP
+[ ] HTTPS
+[ ] SSH
+[ ] Firewall
+```
+
+## Development
+
+```text
+[ ] Git
+[ ] Node.js
+[ ] npm
+[ ] Environment variables
+[ ] PostgreSQL
+[ ] Redis
+[ ] Docker
+[ ] Nginx
+```
+
+## Cloud / DevOps
+
+```text
+[ ] Remote servers
+[ ] SSH deployment
+[ ] Docker Compose
+[ ] CI/CD
+[ ] Cloud infrastructure
+[ ] Monitoring
+[ ] Backups
+```
+
 ## Final Goal
 
 Be comfortable using Linux as a development and Cloud environment:
