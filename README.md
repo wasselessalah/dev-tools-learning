@@ -1,81 +1,75 @@
+# 🛠️ Tools Learning
+
+A personal repository for learning and practicing essential tools used in **software development, DevOps, Cloud Engineering, Linux, and backend development**.
+
+The repository contains practical documentation, commands, examples, best practices, and learning resources.
+
+---
+
+## 📚 Tools
+
+### 🐳 Docker
+
+- [Docker Learning](./docker/DOCKER_LEARNING.md)
+- [Docker Topics & Tools](./docker/DOCKER_Topics_Tools.md)
+- [Docker Compose](./docker/DOCKER_COMPOSE.md)
+
+🌐 [Docker](https://www.docker.com/) · [Documentation](https://docs.docker.com/)
+
+---
+
+### 🌿 Git & GitHub
+
+- [Git & GitHub Beginner Guide](./git_github/Git_GitHub_Beginner_Guide.md)
+
+🌐 [Git](https://git-scm.com/) · [GitHub](https://github.com/) · [GitHub Docs](https://docs.github.com/)
+
 ---
 
 ### 🐧 Linux
 
-Learn Linux fundamentals, terminal commands, permissions, users, processes, networking, SSH, systemd, services, Bash scripting, server administration, Docker, PostgreSQL, Redis, Nginx, and troubleshooting.
-
-#### 📖 Documentation
-
-
-
 - [Linux Beginner Guide](./linux/LINUX_BEGINNER_GUIDE.md)
-- [Linux Beginner Guide — Detailed](./linux/LINUX_BEGINNER_GUIDE_DETAILED.md)
 
-#### 🌐 Official Resources
+🌐 [Linux](https://www.kernel.org/) · [Ubuntu](https://ubuntu.com/) · [Ubuntu Docs](https://documentation.ubuntu.com/)
 
-- [Linux Kernel](https://www.kernel.org/)
-- [Ubuntu](https://ubuntu.com/)
-- [Ubuntu Documentation](https://documentation.ubuntu.com/)
-- [Ubuntu Server Documentation](https://documentation.ubuntu.com/server/)
-- [GNU Coreutils](https://www.gnu.org/software/coreutils/)
-- [Bash Reference Manual](https://www.gnu.org/software/bash/manual/)
-- [systemd Documentation](https://systemd.io/)
+---
 
-#### 🐧 Important Linux Topics
+### 🟢 Node.js
 
-- Linux distributions
-- Terminal
-- Shell
-- Bash
-- Files and directories
-- `ls`
-- `cd`
-- `pwd`
-- `cp`
-- `mv`
-- `rm`
-- `mkdir`
-- `touch`
-- `cat`
-- `less`
-- `head`
-- `tail`
-- `grep`
-- `find`
-- `rg`
-- File permissions
-- `chmod`
-- `chown`
-- Users and groups
-- `sudo`
-- Processes
-- `ps`
-- `top`
-- `htop`
-- `kill`
-- Jobs
-- Environment variables
-- `PATH`
-- SSH
-- SSH keys
-- Networking
-- Ports
-- DNS
-- `curl`
-- `wget`
-- `ufw`
-- systemd
-- `journalctl`
-- Bash scripting
-- Cron
-- Disk management
-- Memory management
-- CPU monitoring
-- Logs
-- Nginx
-- PostgreSQL
-- Redis
-- Docker
-- Server deployment
-- Linux security
-- Troubleshooting
+- [Node.js Learning](./Node.js/NODEJS_LEARNING.md)
+
+🌐 [Node.js](https://nodejs.org/) · [Node.js Docs](https://nodejs.org/docs/)
+
+---
+
+### 📦 npm
+
+- [npm Learning](./npm/NPM_LEARNING.md)
+
+🌐 [npm](https://www.npmjs.com/) · [npm Docs](https://docs.npmjs.com/)
+
+---
+
+## 📁 Repository Structure
+
+```text
+tools-learning/
+│
+├── README.md
+│
+├── docker/
+│   ├── DOCKER_LEARNING.md
+│   ├── DOCKER_Topics_Tools.md
+│   └── DOCKER_COMPOSE.md
+│
+├── git_github/
+│   └── Git_GitHub_Beginner_Guide.md
+│
+├── linux/
+│   └── LINUX_BEGINNER_GUIDE.md
+│
+├── Node.js/
+│   └── NODEJS_LEARNING.md
+│
+└── npm/
+    └── NPM_LEARNING.md
