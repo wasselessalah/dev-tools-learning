@@ -29,6 +29,8 @@ The repository contains practical documentation, commands, examples, best practi
 ### 🐧 Linux
 
 * [Linux Beginner Guide](./linux/LINUX_BEGINNER_GUIDE.md)
+* [Linux Files and Directories](./linux/LINUX_FILES_AND_DIRECTORIES.md)
+* [Linux Permissions and Groups](./linux/LINUX_PERMISSIONS_AND_GROUPS.md)
 * [SSH Learning](./linux/SSH_LEARNING.md)
 
 🌐 [Linux Kernel](https://www.kernel.org/) · [Ubuntu](https://ubuntu.com/) · [Ubuntu Docs](https://documentation.ubuntu.com/) · [OpenSSH](https://www.openssh.com/)
@@ -99,6 +101,8 @@ tools-learning/
 │
 ├── linux/
 │   ├── LINUX_BEGINNER_GUIDE.md
+│   ├── LINUX_FILES_AND_DIRECTORIES.md
+│   ├── LINUX_PERMISSIONS_AND_GROUPS.md
 │   └── SSH_LEARNING.md
 │
 ├── nginx/
@@ -125,6 +129,10 @@ A recommended order for learning the topics in this repository:
                     Git & GitHub
                          ↓
                        Linux
+                         ↓
+              Files & Directories
+                         ↓
+             Permissions & Groups
                          ↓
                     SSH / Networking
                          ↓
@@ -176,10 +184,13 @@ GitHub
 
 ```text
 Linux
-SSH
+├── Files & Directories
+├── Permissions & Groups
+└── SSH
+
 Nginx
-Reverse Proxy
-Load Balancing
+├── Reverse Proxy
+└── Load Balancing
 ```
 
 ## 🗄️ Databases
@@ -216,6 +227,10 @@ Observability
 
 * Learn essential developer tools
 * Practice Linux and terminal commands
+* Understand Linux files and directories
+* Understand Linux permissions and groups
+* Understand users, ownership, and access control
+* Learn SSH and remote server management
 * Understand Git and GitHub workflows
 * Learn Node.js and its ecosystem
 * Understand npm and npx
@@ -278,6 +293,8 @@ Observability
 * [Linux Kernel](https://www.kernel.org/)
 * [Ubuntu](https://ubuntu.com/)
 * [Ubuntu Documentation](https://documentation.ubuntu.com/)
+* [GNU Coreutils](https://www.gnu.org/software/coreutils/)
+* [Bash](https://www.gnu.org/software/bash/)
 
 ---
 
@@ -381,6 +398,23 @@ The repository is gradually moving from individual tools toward understanding ho
                     └──────┬───────┘
                            │
                            ↓
+                  ┌──────────────────┐
+                  │ Files &          │
+                  │ Directories      │
+                  └────────┬─────────┘
+                           │
+                           ↓
+                  ┌──────────────────┐
+                  │ Permissions &    │
+                  │ Groups           │
+                  └────────┬─────────┘
+                           │
+                           ↓
+                    ┌──────────────┐
+                    │     SSH      │
+                    └──────┬───────┘
+                           │
+                           ↓
                     ┌──────────────┐
                     │   Node.js    │
                     └──────┬───────┘
@@ -427,18 +461,25 @@ The repository is gradually moving from individual tools toward understanding ho
 
 ```text
 [x] Git & GitHub
+
 [x] Linux
+[x] Linux Files & Directories
+[x] Linux Permissions & Groups
 [x] SSH
+
 [x] Node.js
 [x] Node.js Modules
 [x] npm
 [x] npm vs npx
+
 [x] Database Fundamentals
 [x] SQL vs NoSQL
 [x] PostgreSQL
 [x] MongoDB
+
 [x] Docker
 [x] Docker Compose
+
 [x] Nginx
 [x] Reverse Proxy
 [x] Load Balancing
@@ -465,6 +506,18 @@ Build a strong understanding of the complete development and deployment workflow
                     │
                     ↓
               Git / GitHub
+                    │
+                    ↓
+                  Linux
+                    │
+           ┌────────┴────────┐
+           ↓                 ↓
+      Files &             Permissions
+     Directories           & Groups
+           │                 │
+           └────────┬────────┘
+                    ↓
+                   SSH
                     │
                     ↓
                 Node.js
